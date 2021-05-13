@@ -20,6 +20,17 @@ html {
   box-sizing: inherit;
 }
 
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  border: 0;
+  margin: -1px;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
 body {
   background-color: var(--primary-bg-color);
   color: var(--text-color) #757575;
@@ -329,10 +340,6 @@ img {
   color: var(--accent-color);
 }
 
-.big-icon:hover,
-.big-icon:focus {
-  fill: currentColor;
-}
 
 /* section Team */
 
@@ -497,11 +504,8 @@ img {
 
 .footer .container {
   display: flex;
+  justify-content: space-between;
   align-items: baseline;
-}
-
-.footer-contacts {
-  margin-right: 70px;
 }
 
 .footer-title {
@@ -590,11 +594,32 @@ color: var(--secondary-text-color);
 .footer-form-field {
   width: 358px;
   height: 50px;
-  margin-left: 12px;
+  margin-right: 12px;
+  padding-left: 16px;
   border: 1px solid rgba(255, 255, 255, 0.3);
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
   border-radius: 4px; 
   background: #2F303A;
+  
+}
+
+.footer-form-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-form-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 29px;
+  padding-right: 28px;
+}
+
+.footer-button-svg {
+  margin-left: 10px;
+  fill: var(--primary-bg-color);
 }
 
 /* MODAL */
@@ -619,10 +644,9 @@ color: var(--secondary-text-color);
   position: absolute;
   top: 50%;
   left: 50%;
-
   min-width: 528px;
   min-height: 581px;
-  padding: 15px;
+  padding: 40px;
 
   background-color: var(--primary-bg-color);
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
@@ -646,8 +670,9 @@ color: var(--secondary-text-color);
   height: 30px;
   border-radius: 50%;
   position: absolute;
-  background: var(--secondary-bg-color);
+  background: transparent;
   border: 1px solid rgba(0, 0, 0, 0.1);
+  cursor: pointer;
 }
 
 .modal-btn:hover .close-btn {
@@ -657,22 +682,16 @@ color: var(--secondary-text-color);
 .modal-title {
 font-weight: 700;
 font-size: 20px;
+margin-bottom: 12px;
 line-height: 1.15em;
 text-align: center;
 letter-spacing: 0.03em;
 color: var(--title-color);
 }
 
-.contact-form {
-  padding: 40px;
-}
-
 .contact-form-field {
-  /* display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between; */
   display: block;
-  padding: 0;
+  padding-left: 40px;
   margin-right: 0 auto;
   margin-left: 0 auto;
   width: 448px;
@@ -688,23 +707,26 @@ color: var(--title-color);
   border-color:var(--accent-color);
 }
 
-.contact-form-field:focus .contact-form-icon {
+.contact-form-field:focus + .contact-form-icon {
   fill: var(--accent-color);
 }
 
 .contact-form-wrapper{
   position: relative;
+  margin-bottom: 10px;
 }
 
 .contact-form-icon {
   position: absolute;
   top: 50%;
-  left: 0;
-  transform: translateY(-50%);
+  left: 14px;
+  /* transform: translateY(-50%); */
 }
 
 .field-label {
+display:block;
 font-size: 12px;
+margin-bottom: 4px;
 line-height: 1.16em;
 letter-spacing: 0.01em;
 color: var(--text-color);
@@ -739,10 +761,44 @@ color: var(--text-color);
   color: var(--accent-color);
 }
 
-.check-box-wrapper {
+.checkbox-wrapper {
   margin-bottom: 30px;
 }
-/* 
-.policy-link {
 
-} */
+.icon-check-wrap{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 15px;
+  border: 2px solid var(--title-color);
+  border-radius: 3px;
+  margin-right: 8px;
+}
+
+.check-icon {
+  fill: var(--primary-bg-color);
+}
+
+.checkbox-input:checked + .checkbox-label > .icon-check-wrap {
+border: none;
+background-color: var(--accent-color);
+}
+
+/* (ловимо фокус на інпут, спан має бордер і він тут є контейнером) */
+.checkbox-input:focus + .checkbox-label > .icon-check-wrap {
+  border-color: var(--accent-color);
+  }
+  
+
+.checkbox-label {
+display: flex;
+align-items: center;
+padding-left: 12px;
+}
+
+.modal-send {
+  padding-left: 55px;
+  padding-right: 55px;
+}
+

@@ -328,11 +328,11 @@
         </div>
         <form class="footer-form" action="">
           <p class="footer-form-text">Подпишитесь на рассылку</p>
+          <div class="footer-form-wrap">
           <input class="footer-form-field" class type="email" placeholder="E-mail">
-       
-          <button class="button" type="button">Подписаться</button>
-          <svg class="footer-icon-svg" width="24" height="24">
-            <use href="./images/sprite.svg#icon-icon-send"></use></svg>
+          <button class="button footer-form-button" type="button">Подписаться<svg class="footer-button-svg" width="24" height="24">
+            <use href="./images/sprite.svg#icon-icon-send"></use></svg></button>
+          </div>
         </form>
       </div>
     </footer>
@@ -372,15 +372,15 @@
         <textarea class="contact-form-field text-area" id="comment" name="user-comment" placeholder="Введите текст" cols="30" rows="10"></textarea>
       </div>
      <div class="checkbox-wrapper">
+      <input class="checkbox-input visually-hidden" id="check" type="checkbox">
        <label class="checkbox-label" for="check">
-        <input class="checkbox-input" type="checkbox">
-        <svg class="check-icon" width="11" height="11">
+        <span class="icon-check-wrap"><svg class="check-icon" width="11" height="11">
           <use href="./images/sprite.svg#icon-check"></use>
-        </svg>
+        </svg></span>
         <p class="policy-text">Соглашаюсь с рассылкой и принимаю <a class="policy-link">Условия договора</a></p>
       </label>
       </div>
-     <button class="button" type="submit">Отправить</button>
+     <button class="button modal-send" type="submit">Отправить</button>
       </form>  
       </div>
   </div> 
